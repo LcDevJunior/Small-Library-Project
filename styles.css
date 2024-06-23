@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: hsl(220, 15%, 15%);
+    color: #fff;
+    overflow-x: hidden;
+}
+
+#section {
+    margin: 5rem auto;
+    width: 100vw;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 4rem 0;
+}
+
+#section .addBook {
+    font-size: 2.5rem;
+}
+
+#section .add-book {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+
+#form {
+    width: 65%;
+    margin: 0 auto;
+    padding: 2rem;
+    background: hsl(210, 22%, 25%);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+
+.add-book div {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.add-book label {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.add-book input[type="text"],
+.add-book input[type="number"] {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    font-weight: 600;
+}
+
+.readCheckboxContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.add-book .readCheckboxContainer input {
+    aspect-ratio: 1/1;
+    width: 3rem;
+}
+
+/* Focus state for input fields */
+.add-book input[type="text"]:focus,
+.add-book input[type="number"]:focus {
+
+    border-color: #37B7C3;
+    box-shadow: 0 0 8px rgba(55, 183, 195, 0.5);
+    outline: none;
+}
+
+/* Styling for the submit button */
+.addBook,
+.trashBook {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 1.5rem;
+    background-color: #37B7C3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 2.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.addBook i,
+.trashBook i {
+    margin-right: 0.5rem;
+}
+
+.addBook:hover,
+.trashBook:hover {
+    background-color: #088395;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 480px) {
+    #form {
+        padding: 1rem;
+    }
+}
+
+
+.container-book {
+    width: 80%;
+    height: auto;
+    padding: 1.5rem;
+    background: hsl(210, 22%, 25%);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5rem;
+}
+
+
+.book {
+    width: 12rem;
+    height: 17rem;
+    background: #37B7C3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 0.5rem;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+
+}
+
+.book:hover {
+    transform: scale(1.05);
+}
+
+.book:hover .close {
+    display: block;
+}
+
+.book::before {
+    content: '';
+    position: absolute;
+    left: -2rem;
+    width: 2rem;
+    height: 100%;
+    background: linear-gradient(135deg, #088395, #37B7C3);
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.title {
+    width: 90%;
+    height: fit-content;
+    background: #088395;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 0.5rem;
+    margin: 1rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.title:hover {
+    overflow: visible;
+    text-overflow: unset;
+    overflow: visible;
+    text-overflow: unset;
+    white-space: normal;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.title:hover~.footer .author,
+.title:hover~.footer .pages {
+    display: none;
+}
+
+.close {
+    background: none;
+    outline: none;
+    border: none;
+    font-size: 2.5rem;
+    position: absolute;
+    top: -2rem;
+    right: -2.5rem;
+    color: white;
+    cursor: pointer;
+    display: none;
+    transition: display 0.2s;
+}
+
+.footer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+
+}
+
+.pages {
+    font-size: 1.5rem;
+}
+
+.author {
+    width: 100%;
+    max-width: 100%;
+    font-size: 1.5rem;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.author:hover {
+    overflow: visible;
+    text-overflow: unset;
+    overflow: visible;
+    text-overflow: unset;
+    background: #088395;
+    white-space: normal;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+    .author:hover.title {
+        display: none;
+    }
+}
+
+
+
+.book .read {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.read .readBook {
+    font-size: 1.5rem;
+    margin-right: .5rem;
+}
